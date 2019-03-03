@@ -5,7 +5,7 @@ echo 'Latest TeamSpeak3 Version: '$LATEST_VERSION
 INSTALLED_VERSION=$(cat version.txt)
 echo 'Installed TeamSpeak3 Version: '$INSTALLED_VERSION
 
-if [ $NEWVERSION != $CURRVERSION ];
+if [ $LATEST_VERSION != $INSTALLED_VERSION ];
 then
   echo 'Update required!'
   echo 'downloading latest version and extracting file...'
@@ -19,5 +19,12 @@ else
   echo 'No update required.'
 fi
 
-echo 'starting server...'
-./ts3server_minimal_runscript.sh inifile=ts3server.ini
+if [ ! -f ts3server.ini ]; then
+  ./ts3server_startscript.sh start createinifile=1
+  PID=$(pgrep ts3server)
+  kill $PID
+  exit 1
+else
+  echo 'starting server...'
+  ./ts3server_minimal_runscript.sh inifile=ts3server.ini
+fi
