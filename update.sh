@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 LATEST_VERSION=$(curl -s https://raw.githubusercontent.com/KingJP/teamspeak-egg/master/tsversion)
 echo 'Latest TeamSpeak3 Version: '$LATEST_VERSION
