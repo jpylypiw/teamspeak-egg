@@ -6,8 +6,7 @@
 
 - **Auto updating on server restart**
 - **Multiple Startup Parameters**
-- **Fast Server start**
-- **Fast server updating**
+- **Use a specific server version or the latest server version**
 
 ## Installation
 
@@ -18,6 +17,7 @@ You just need three simple steps to install the teamspeak-egg in your pterodacty
 1. [Check Requirements](#require)
 2. [Import the Egg](#egg)
 3. [Restart the pterodactyl.io daemon](#restart)
+4. [(Optional) Downgrade the Server after installing](#downgrade)
 
 ### <a name="require"></a> 1. Check Requirements
 
@@ -50,16 +50,45 @@ check the update documentation on the [documentation page](https://pterodactyl.i
 
 3. check your Node in pterodactyl panel. It should be up and running. This is indicated by the green heart in Nodes Section
 
+### <a name="downgrade"></a> 4. (Optional) Downgrade the Server after installing
+
+This step is needed if you want to install a older version of teamspeak instead of the latest.
+
+For performing the downgrade the server has to be installed and started one or multiple times.
+
+**Important:** When performing this step you will lose all data of your teamspeak server because the server database does not allow downgrading!
+
+1. Stop the Server in **Console** section of pterodactyl server panel
+
+1. Go to **File Management** and delete all files containing the word "sqlitedb". Normally this should be the 3 files:
+    - ts3server.sqlitedb
+    - ts3server.sqlitedb-shm
+    - ts3server.sqlitedb-wal
+
+1. Go to **Configuration -> Startup Parameters** and edit **Server Version** to your desired server version.
+
+1. Go back to Console and start the Server. You should see the startup containing the ServerAdmin token.
+
 ## License
 
 teamspeak-egg is GNU **General Public License v3.0**. Please check the [License](https://github.com/JPylypiw/teamspeak-egg/blob/master/LICENSE) before performing any changes on the scripts.
 
 ## Screenshots
 
-![Screenshot 1: Configuration of the Server](https://i.imgur.com/Gw6cSIE.png)
-![Screenshot 2: Console Output while updating](https://i.imgur.com/fF5oVQn.png)
+![Screenshot 1: Configuration of the Server](https://i.imgur.com/tADiDOw.png)
+![Screenshot 2: Console Output while updating](https://i.imgur.com/A0hTmMN.png)
 
 ## Changelog
+
+### 1.2.0 (2019-05-04)
+
+Features:
+- you can set a static teamspeak server version instead of using the latest server version
+- changed some documentation for downgrading the server after installing the latest version
+
+Performance:
+Bugfixes:
+- some shell script issues fixed
 
 ### 1.1.0 (2019-05-04)
 
