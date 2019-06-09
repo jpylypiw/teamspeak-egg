@@ -30,7 +30,7 @@ updateToVersion() {
     rm ./LICENSE*
     rm ts3server
     echo "downloading teamspeak version $TSVERSION and extracting file..."
-    curl https://files.teamspeak-services.com/releases/server/"$TSVERSION"/teamspeak3-server_linux_amd64-"$TSVERSION".tar.bz2 | tar xj --strip-components=1
+    curl https://files.teamspeak-services.com/releases/server/"$TSVERSION"/teamspeak3-server_linux_alpine-"$TSVERSION".tar.bz2 | tar xj --strip-components=1
     echo 'download and extraction finished'
     chmod +x ts3server_minimal_runscript.sh
     echo 'permissions set.'
