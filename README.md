@@ -80,6 +80,18 @@ teamspeak-egg is GNU **General Public License v3.0**. Please check the [License]
 
 ## Changelog
 
+### 1.2.1 (2019-06-09)
+
+Features:
+- changed from linux Version of TeamSpeak3 to Alpine Version
+
+Bugfixes:
+- Fixed startup issues with TeamSpeak Version 3.8.0
+```
+./ts3server: Relink `/usr/lib/libgcc_s.so.1' with `/usr/glibc-compat/lib/libc.so.6' for IFUNC symbol `memset'
+Segmentation fault (core dumped)
+```
+
 ### 1.2.0 (2019-05-04)
 
 Features:
