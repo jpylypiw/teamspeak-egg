@@ -3,15 +3,15 @@
     "meta": {
         "version": "PTDL_v1"
     },
-    "exported_at": "2019-05-04T19:44:50+02:00",
+    "exported_at": "2019-07-23T23:24:51+02:00",
     "name": "Teamspeak3 Server",
     "author": "admin@webdesign-kronberg.de",
     "description": "VoIP software designed with security in mind, featuring crystal clear voice quality, endless customization options, and scalabilty up to thousands of simultaneous users.",
     "image": "quay.io\/pterodactyl\/core:glibc",
     "startup": ".\/update.sh",
     "config": {
-        "files": "{\r\n    \"ts3server.ini\": {\r\n        \"parser\": \"ini\",\r\n        \"find\": {\r\n            \"default_voice_port\": \"{{server.build.default.port}}\",\r\n            \"voice_ip\": \"0.0.0.0\",\r\n            \"filetransfer_port\": \"{{server.build.env.FILETRANSFER_PORT}}\",\r\n            \"filetransfer_ip\": \"0.0.0.0\",\r\n            \"query_port\": \"{{server.build.env.QUERY_PORT}}\",\r\n            \"query_ip\": \"0.0.0.0\",\r\n            \"logquerycommands\": \"{{server.build.env.LOG_QUERY_COMMANDS}}\",\r\n            \"license_accepted\": \"1\",\r\n            \"query_ssh_ip\": \"0.0.0.0\",\r\n            \"query_ssh_port\": \"{{server.build.env.QUERY_SSH_PORT}}\",\r\n            \"query_protocols\": \"{{server.build.env.QUERY_PROTOCOLS}}\",\r\n            \"query_ssh_rsa_host_key\": \"{{server.build.env.QUERY_SSH_KEY}}\",\r\n            \"query_timeout\": \"{{server.build.env.QUERY_TIMEOUT}}\"\r\n        }\r\n    },\r\n    \"version_static.txt\": {\r\n        \"parser\": \"ini\",\r\n        \"find\": {\r\n            \"SERVER_VERSION\": \"{{server.build.env.SERVER_VERSION}}\"\r\n        }\r\n    }\r\n}",
-        "startup": "{\r\n    \"done\": \"listening on 0.0.0.0:\",\r\n    \"userInteraction\": []\r\n}",
+        "files": "{\r\n    \"ts3server.ini\": {\r\n        \"parser\": \"ini\",\r\n        \"find\": {\r\n            \"default_voice_port\": \"{{server.build.default.port}}\",\r\n            \"voice_ip\": \"0.0.0.0, ::\",\r\n            \"filetransfer_port\": \"{{server.build.env.FILETRANSFER_PORT}}\",\r\n            \"filetransfer_ip\": \"0.0.0.0, ::\",\r\n            \"query_port\": \"{{server.build.env.QUERY_PORT}}\",\r\n            \"query_ip\": \"0.0.0.0, ::\",\r\n            \"logquerycommands\": \"{{server.build.env.LOG_QUERY_COMMANDS}}\",\r\n            \"license_accepted\": \"1\",\r\n            \"query_ssh_ip\": \"0.0.0.0, ::\",\r\n            \"query_ssh_port\": \"{{server.build.env.QUERY_SSH_PORT}}\",\r\n            \"query_protocols\": \"{{server.build.env.QUERY_PROTOCOLS}}\",\r\n            \"query_ssh_rsa_host_key\": \"{{server.build.env.QUERY_SSH_KEY}}\",\r\n            \"query_timeout\": \"{{server.build.env.QUERY_TIMEOUT}}\"\r\n        }\r\n    },\r\n    \"version_static.txt\": {\r\n        \"parser\": \"ini\",\r\n        \"find\": {\r\n            \"SERVER_VERSION\": \"{{server.build.env.SERVER_VERSION}}\"\r\n        }\r\n    }\r\n}",
+        "startup": "{\r\n    \"done\": \"listening for query\",\r\n    \"userInteraction\": []\r\n}",
         "logs": "{\r\n    \"custom\": true,\r\n    \"location\": \"logs\/ts3server_custom.log\"\r\n}",
         "stop": "^C"
     },
