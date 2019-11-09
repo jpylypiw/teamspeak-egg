@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # get latest version from github
 LATEST_VERSION=$(curl -s https://raw.githubusercontent.com/KingJP/teamspeak-egg/master/tsversion)
